@@ -1,5 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 // Crie um contexto para o estado logado
 export const AuthContext = createContext();
@@ -8,23 +10,24 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState(null);
+    const router = useRouter();
 
     let tokenStorage;
 
-    if (typeof window !== 'undefined') {
-        // Perform localStorage action
-        tokenStorage = localStorage.getItem('token');
-    }
+    let apiurl = process.env.NEXT_PUBLIC_API_URL;
 
-    if (tokenStorage) {
-        setToken(tokenStorage)
-        setIsLoggedIn(true)
-    }
+    useEffect(() => {
+        tokenStorage = localStorage.getItem('tokenStorage');
+        if (tokenStorage) {
+            setToken(tokenStorage)
+            setIsLoggedIn(true)
+        }
+    }, [])
 
     // Função para fazer login
     const login = async (username, password) => {
         try {
-            const response = await axios.post('http://localhost:3001/auth/login', {
+            const response = await axios.post(apiurl + 'auth/login', {
                 login: username,
                 password: password,
             });
@@ -34,6 +37,7 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem('tokenStorage', tokenObject.access_token)
                 setToken(tokenObject.access_token);
                 setIsLoggedIn(true);
+                await router.push('/');
             }
         } catch (error) {
             console.error('Erro no login:', error);
@@ -43,6 +47,10 @@ export const AuthProvider = ({ children }) => {
     // Função para fazer logout
     const logout = () => {
         setIsLoggedIn(false);
+
+        localStorage.removeItem('tokenStorage');
+
+        router.push('/');
     };
 
     return (

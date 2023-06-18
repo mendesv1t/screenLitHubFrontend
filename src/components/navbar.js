@@ -5,7 +5,13 @@ import React, {useContext} from 'react';
 import Link from "next/link";
 
 export default function NavBar() {
-    const {isLoggedIn} = useContext(AuthContext);
+    const {isLoggedIn, logout} = useContext(AuthContext);
+
+    const handleLogout = (event) => {
+        event.preventDefault();
+
+        logout();
+    };
 
     return (
         <header className="cabecalho">
@@ -39,7 +45,7 @@ export default function NavBar() {
                     : <></>}
                 <Image src={logo} style={{width: '4vw', height: 'auto'}} alt="Logo do ScreenLitHub"
                        className="container-imagem"/>
-                <h1 className="container-titulo"><b className="container-titulo-negrito">ScreenLitHub</b></h1>
+                <Link href="/" style={{ textDecoration: 'none', color: 'var(--primaria)' }}><h1 className="container-titulo"><b className="container-titulo-negrito">ScreenLitHub</b></h1></Link>
             </div>
 
             {isLoggedIn ? <ul className="opcoes">
@@ -73,14 +79,17 @@ export default function NavBar() {
 
             <div className="container">
                 {isLoggedIn ?
-                    <Link href="#" className="container-link">
-                        <img src="../assets/Usuário.svg" alt="Meu perfil" className="container-imagem"/>
-                        <p className="container-texto">Meu perfil</p>
-                    </Link>
+                    <div style={{display: 'inline-flex'}}>
+                        <Link href="/perfil" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large', marginRight: '1em'}}>
+                            <p>Meu perfil</p>
+                        </Link>
+                        <Link href="/" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large'}}>
+                            <p onClick={handleLogout}>Logout</p>
+                        </Link>
+                    </div>
                     :
-                    <Link href="/login" className="container-link">
-                        <img src="../assets/Usuário.svg" alt="Login" className="container-imagem"/>
-                        <p className="container-texto">Login</p>
+                    <Link href="/login" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large'}}>
+                        <p>Login</p>
                     </Link>
                 }
             </div>

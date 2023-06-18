@@ -16,12 +16,12 @@ export default function Home() {
 
                         <div className="swiper-pagination"></div>
                         <div className="swiper-wrapper">
-                            <div className="swiper-slide"><img src="../assets/livros/ApacheKafka.svg" alt="Livro Apache Kafka"/></div>
-                            <div className="swiper-slide"><img src="../assets/livros/Guia Front-end.svg" alt="Livro Guia Front-end"/>
+                            <div className="swiper-slide"><img alt="Livro Apache Kafka"/></div>
+                            <div className="swiper-slide"><img alt="Livro Guia Front-end"/>
                             </div>
-                            <div className="swiper-slide"><img src="../assets/livros/Portugol.svg" alt="Livro Portugol"/></div>
-                            <div className="swiper-slide"><img src="../assets/livros/Gestão2.svg" alt="Livro Gestao"/></div>
-                            <div className="swiper-slide"><img src="../assets/livros/Liderança.svg" alt="Livro Liderança"/></div>
+                            <div className="swiper-slide"><img alt="Livro Portugol"/></div>
+                            <div className="swiper-slide"><img alt="Livro Gestao"/></div>
+                            <div className="swiper-slide"><img alt="Livro Liderança"/></div>
                         </div>
 
                         <div className="swiper-button-prev"></div>
@@ -34,12 +34,12 @@ export default function Home() {
                                 <h2 className="descricao-titulo-livro">Angular 11 e Firebase</h2>
                                 <p className="descricao-texto">Construindo uma aplicação integrada com a plataforma do Google.</p>
                             </div>
-                            <img src="../assets/Angular.svg" alt="Angular" className="descricao-imagem"/>
+                            <img alt="Angular" className="descricao-imagem"/>
                         </div>
                         <div className="card-botoes">
                             <ul className="botoes">
-                                <li className="botoes-item"><img src="../assets/Favoritos.svg" alt="Favoritar livro"/></li>
-                                <li className="botoes-item"><img src="../assets/Compras.svg" alt="Adicionar ao carrinho"/></li>
+                                <li className="botoes-item"><img alt="Favoritar livro"/></li>
+                                <li className="botoes-item"><img alt="Adicionar ao carrinho"/></li>
                             </ul>
                             <a href="#" className="botoes-ancora">Saiba mais</a>
                         </div>
@@ -52,13 +52,13 @@ export default function Home() {
                     <div className="swiper">
                         <div className="swiper-pagination"></div>
                         <div className="swiper-wrapper">
-                            <div className="swiper-slide"><img src="../assets/maisvendidos/Arquitetura.svg" alt="Livro Apache Kafka"/>
+                            <div className="swiper-slide"><img alt="Livro Apache Kafka"/>
                             </div>
-                            <div className="swiper-slide"><img src="../assets/maisvendidos/Javascript.svg" alt="Livro Guia Front-end"/>
+                            <div className="swiper-slide"><img alt="Livro Guia Front-end"/>
                             </div>
-                            <div className="swiper-slide"><img src="../assets/maisvendidos/Nodejs.svg" alt="Livro Portugol"/></div>
-                            <div className="swiper-slide"><img src="../assets/maisvendidos/ReactNative.svg" alt="Livro Gestao"/></div>
-                            <div className="swiper-slide"><img src="../assets/maisvendidos/Tuning.svg" alt="Livro Liderança"/></div>
+                            <div className="swiper-slide"><img alt="Livro Portugol"/></div>
+                            <div className="swiper-slide"><img alt="Livro Gestao"/></div>
+                            <div className="swiper-slide"><img alt="Livro Liderança"/></div>
                         </div>
 
                         <div className="swiper-button-prev"></div>
@@ -68,23 +68,23 @@ export default function Home() {
                         <div className="card-descricao">
                             <div className="descricao">
                                 <ul className="estrelinhas">
-                                    <li><img src="../assets/star.svg" className="estrela" alt=""/></li>
-                                    <li><img src="../assets/star.svg" className="estrela" alt=""/></li>
-                                    <li><img src="../assets/star.svg" className="estrela" alt=""/></li>
-                                    <li><img src="../assets/star.svg" className="estrela" alt=""/></li>
-                                    <li><img src="../assets/star.svg" className="estrela" alt=""/></li>
+                                    <li><img className="estrela" alt=""/></li>
+                                    <li><img className="estrela" alt=""/></li>
+                                    <li><img className="estrela" alt=""/></li>
+                                    <li><img className="estrela" alt=""/></li>
+                                    <li><img className="estrela" alt=""/></li>
                                 </ul>
                                 <h3 className="descricao-autora">Autora do mês</h3>
                                 <h2 className="descricao-titulo-livro">Juliana Agarikov</h2>
                                 <p className="descricao-texto">Analista de sistemas e escritora, Juliana é especialista em Front-End.
                                 </p>
                             </div>
-                            <img src="../assets/escritora.svg" alt="Escritora" className="descricao-imagem"/>
+                            <img alt="Escritora" className="descricao-imagem"/>
                         </div>
                         <div className="card-botoes">
                             <ul className="botoes">
-                                <li className="botoes-item"><img src="../assets/Favoritos.svg" alt="Favoritar livro"/></li>
-                                <li className="botoes-item"><img src="../assets/Compras.svg" alt="Adicionar ao carrinho"/></li>
+                                <li className="botoes-item"><img alt="Favoritar livro"/></li>
+                                <li className="botoes-item"><img alt="Adicionar ao carrinho"/></li>
                             </ul>
                             <a href="#" className="botoes-ancora">Saiba mais</a>
                         </div>
