@@ -1,9 +1,12 @@
 import Layout from '../components/layout'
+import {AuthProvider} from "@/components/context/authContext";
 
-export default function MyApp({ Component, pageProps }) {
+export default function MyApp({Component, pageProps}) {
     return (
-        <Layout>
-            <Component {...pageProps} />
-        </Layout>
+        <AuthProvider>
+            <Layout>
+                <Component {...pageProps} />
+            </Layout>
+        </AuthProvider>
     )
 }

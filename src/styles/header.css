@@ -107,9 +107,6 @@
     .opcoes-botao {
         display: none;
     }
-    .container-link {
-        display: none;
-    }
     .opcoes-botao:checked~.opcoes-rotulo>.opcoes-item {
         background: var(--primaria);
         color: var(--secundario);

@@ -6,13 +6,13 @@ import Footer from "@/components/footer";
 
 export default function Layout({children, title = 'Screen Lit Hub'}) {
     return (
-        <>
+        <div className="wrapper">
             <Head>
                 <title>{title}</title>
             </Head>
             <NavBar/>
-            <main>{children}</main>
+            <main className="content">{children}</main>
             <Footer/>
-        </>
+        </div>
     )
 }
