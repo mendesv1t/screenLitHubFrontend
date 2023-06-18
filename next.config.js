@@ -1,24 +1,17 @@
-/** @type {import('next').NextConfig} */
+// next.config.js
 module.exports = {
     async headers() {
         return [
             {
-                source: '/', // Rota de login da sua API
+                // matching all API routes
+                source: "/(.*)",
                 headers: [
-                    {
-                        key: 'Access-Control-Allow-Origin',
-                        value: '*', // Permitir acesso de todas as origens
-                    },
-                    {
-                        key: 'Access-Control-Allow-Methods',
-                        value: 'GET, POST, PUT, DELETE, OPTIONS', // Métodos permitidos
-                    },
-                    {
-                        key: 'Access-Control-Allow-Headers',
-                        value: 'X-Requested-With, Content-Type, Authorization', // Cabeçalhos permitidos
-                    },
-                ],
-            },
-        ];
-    },
+                    { key: "Access-Control-Allow-Credentials", value: "true" },
+                    { key: "Access-Control-Allow-Origin", value: "*" },
+                    { key: "Access-Control-Allow-Methods", value: "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+                    { key: "Access-Control-Allow-Headers", value: "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" },
+                ]
+            }
+        ]
+    }
 };
