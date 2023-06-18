@@ -2,6 +2,7 @@ import Image from "next/image";
 import logo from "@/assets/Logo.png";
 import {AuthContext} from './context/authContext';
 import React, {useContext} from 'react';
+import Link from "next/link";
 
 export default function NavBar() {
     const {isLoggedIn} = useContext(AuthContext);
@@ -72,15 +73,15 @@ export default function NavBar() {
 
             <div className="container">
                 {isLoggedIn ?
-                    <a href="#" className="container-link">
+                    <Link href="#" className="container-link">
                         <img src="../assets/Usuário.svg" alt="Meu perfil" className="container-imagem"/>
                         <p className="container-texto">Meu perfil</p>
-                    </a>
+                    </Link>
                     :
-                    <a href="/login" className="container-link">
+                    <Link href="/login" className="container-link">
                         <img src="../assets/Usuário.svg" alt="Login" className="container-imagem"/>
                         <p className="container-texto">Login</p>
-                    </a>
+                    </Link>
                 }
             </div>
         </header>
