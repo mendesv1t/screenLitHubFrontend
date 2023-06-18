@@ -14,7 +14,7 @@
     --cinza-claro: #858585;
     --azul-degrade: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
     --fonte-principal: 'Poppins';
-    --fonte-secundaria: 'Josefin Sans';
+    --fonte-secundaria: 'Dosis', 'saens-serif';
 }
 * {
     margin: 0;

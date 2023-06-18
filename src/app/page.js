@@ -64,7 +64,7 @@ export default function Home() {
           <a href="#"><img src="../assets/Favoritos.svg" alt="Meus Favoritos"
                            className="container-imagem container-imagem-favoritos"/></a>
           <a href="#" className="container-link">
-            <img src="../assets/Compras.svg" alt="Minhas Compras" className="container-imagem"/>
+            <img src="../assets/Compras.svg" alt="Minhas Leituras" className="container-imagem"/>
               <p className="container-texto">Minha sacola</p>
           </a>
           <a href="#" className="container-link">

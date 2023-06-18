@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&display=swap');
+
 .cabecalho-menu-hamburguer {
     width: 24px;
     height: 24px;
@@ -21,6 +23,7 @@
 }
 .container-imagem {
     padding: 0.5em;
+    color: var(--primaria);
 }
 .container-botao {
     display: none;
@@ -64,12 +67,14 @@
 }
 .container-texto {
     display: none;
+    color: var(--secundario);
 }
 
 @media screen and (min-width: 1024px) {
     .container-titulo, .container-titulo-negrito {
         font-family: var(--fonte-secundaria);
         font-size: 30px;
+        font-weight: 500;
     }
     .container-titulo {
         font-weight: 400;
