@@ -1,8 +1,6 @@
 export default function Home() {
     return (
         <main className="flex min-h-screen flex-col items-center justify-between p-24">
-
-
             <section className="banner">
                 <div className="banner-card">
                     <h2 className="banner-titulo">Já sabe por onde começar?</h2>
