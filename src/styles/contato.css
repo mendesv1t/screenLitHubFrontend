@@ -1,0 +1,109 @@
+.contato {
+    background-color: var(--branco);
+    padding: 1em;
+}
+
+.contato-titulo, .contato-texto {
+    background: linear-gradient(97.54deg, #002F52 35.49%, #326589 165.37%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.contato-texto {
+    font-weight: 300;
+    margin: 1em 0;
+}
+.contato-titulo {
+    font-size: 18px;
+    font-weight: 500 ;
+}
+
+.banner-email {
+    background-color: transparent;
+    border: 2px solid var(--primaria);
+    color: var(--primaria);
+    border-radius: 24px;
+    padding: 1em;
+    width: 90%;
+}
+
+.banner-email::placeholder {
+    font-family: var(--fonte-principal);
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: var(--primaria);
+    background-image: url("../assets/Email.svg");
+    background-repeat: no-repeat;
+    background-position: 1em;
+}
+
+.rodape {
+    background-color: var(--branco);
+    padding: 1em;
+}
+
+.rodape-titulo {
+    font-weight: 400;
+    font-size: 16px;
+}
+
+hr {
+    margin: 0;
+}
+.rodape-lista {
+    display: none;
+}
+@media screen and (min-width: 1024px) {
+    .contato-descricao {
+        margin-right: 1em;
+        width: 30%;
+    }
+    .contato {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contato-titulo {
+        font-size: 24px;
+    }
+    .banner-email {
+        width: 30%;
+    }
+    .rodape {
+        display: flex;
+        justify-content: space-around;
+    }
+    .rodape-lista {
+        display: block;
+    }
+    .rodape-lista-item {
+        display: flex;
+        align-items: center;
+        margin: 0.6em 0;
+    }
+    .rodape-lista-link {
+        color: var(--cinza);
+        text-decoration: none;
+        margin-left: 0.6em;
+    }
+    .rodape-lista-titulo {
+        color: var(--cinza-claro);
+    }
+    .rodape-titulo {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+    .contato {
+        padding: 3em 30vw;
+    }
+    .rodape-lista {
+        border-left: 1px solid var(--cinza-claro);
+        padding-left: 1em;
+    }
+    .rodape {
+        padding: 3 em 0;
+    }
+}
