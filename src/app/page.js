@@ -13,19 +13,19 @@ export default function Home() {
             <ul className="lista-menu">
               <li className="lista-menu-titulo">Categorias</li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Programação</a>
+                <a href="#" className="lista-menu-link">Romance</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Front-end</a>
+                <a href="#" className="lista-menu-link">Aventura</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Infraestrutura</a>
+                <a href="#" className="lista-menu-link">Terror</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Business</a>
+                <a href="#" className="lista-menu-link">Romance Policial</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Design e UX</a>
+                <a href="#" className="lista-menu-link">Comédia</a>
               </li>
             </ul>
             <Image src={logo} style={{width: '4vw', height: 'auto'}} alt="Logo do ScreenLitHub" className="container-imagem"/>
@@ -39,20 +39,20 @@ export default function Home() {
             </label>
 
             <ul className="lista-menu">
-              <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Programação</a>
+            <li className="lista-menu-item">
+                <a href="#" className="lista-menu-link">Romance</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Front-end</a>
+                <a href="#" className="lista-menu-link">Aventura</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Infraestrutura</a>
+                <a href="#" className="lista-menu-link">Terror</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Business</a>
+                <a href="#" className="lista-menu-link">Romance Policial</a>
               </li>
               <li className="lista-menu-item">
-                <a href="#" className="lista-menu-link">Design e UX</a>
+                <a href="#" className="lista-menu-link">Comédia</a>
               </li>
             </ul>
 
@@ -77,7 +77,7 @@ export default function Home() {
       <section className="banner">
         <div className="banner-card">
           <h2 className="banner-titulo">Já sabe por onde começar?</h2>
-          <p className="banner-texto">Encontre em nossa estante o que precisa para seu desenvolvimento!</p>
+          <p className="banner-texto">Encontre em nossa estante a sua próxima aventura literária!</p>
           <input type="search" className="banner-pesquisa" placeholder="Qual será a sua próxima leitura?"/>
         </div>
       </section>
