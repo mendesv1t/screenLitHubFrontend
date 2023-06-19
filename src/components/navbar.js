@@ -26,19 +26,19 @@ export default function NavBar() {
                         <ul className="lista-menu">
                             <li className="lista-menu-titulo">Categorias</li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Programação</a>
+                                <a href="#" className="lista-menu-link">Romance</a>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Front-end</a>
+                                <a href="#" className="lista-menu-link">Aventura</a>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Infraestrutura</a>
+                                <a href="#" className="lista-menu-link">Terror</a>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Business</a>
+                                <a href="#" className="lista-menu-link">Comédia</a>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Design e UX</a>
+                                <a href="#" className="lista-menu-link">Fantasia</a>
                             </li>
                         </ul>
                     </>
@@ -56,23 +56,22 @@ export default function NavBar() {
 
                     <ul className="lista-menu">
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Programação</a>
+                            <a href="#" className="lista-menu-link">Romance</a>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Front-end</a>
+                            <a href="#" className="lista-menu-link">Aventura</a>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Infraestrutura</a>
+                            <a href="#" className="lista-menu-link">Terror</a>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Business</a>
+                            <a href="#" className="lista-menu-link">Comédia</a>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Design e UX</a>
+                            <a href="#" className="lista-menu-link">Fantasia</a>
                         </li>
                     </ul>
 
-                    <li className="opcoes-item"><a className="opcoes-item-link" href="#">Favoritos</a></li>
                     <li className="opcoes-item"><a className="opcoes-item-link" href="#">Minha Estante</a></li>
                 </ul>
                 : <></>}

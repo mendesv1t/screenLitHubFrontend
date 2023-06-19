@@ -16,10 +16,17 @@ const LoginPage = () => {
         setPassword(event.target.value);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
+        let button = document.getElementById('login-button');
+        button.classList.add('loading');
+        button.innerText = ''
+
         event.preventDefault();
 
-        login(username, password);
+        await login(username, password);
+
+        button.classList.remove('loading');
+        button.innerText = 'Entrar'
     };
 
     return (
@@ -47,7 +54,7 @@ const LoginPage = () => {
                             className="form-input"
                         />
                     </div>
-                    <button type="submit" className="login-button">Entrar</button>
+                    <button type="submit" className="login-button" id={'login-button'}>Entrar</button>
                 </form>
             </div>
         </div>
