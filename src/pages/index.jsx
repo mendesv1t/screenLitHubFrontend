@@ -87,7 +87,7 @@ export default function Home() {
                 })
             }
 
-            setBooks(response.data.docs)
+            setBooks(docs)
         });
     }
 
@@ -102,8 +102,8 @@ export default function Home() {
                 </div>
             </section>
             <section className="carrossel">
-                <h2 className="carrossel-titulo">Livros Populares</h2>
-                {books.length === 0 ? <div className="carrossel-carregando"><h1>Carregando</h1><p className="loading"></p></div> : <></>}
+                <h2 className="carrossel-titulo">{busca.length === 0 ? 'Livros Populares' : 'Resultado'}</h2>
+                {books.length === 0 ? <div className="carrossel-carregando"><h1>Carregando</h1><p className="loading-carrossel"></p></div> : <></>}
                 <div className="carrossel-container">
                     {books.map((book, index) => (
                         <div key={index} className="card">

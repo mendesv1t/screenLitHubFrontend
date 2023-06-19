@@ -3,7 +3,6 @@
     color: var(--branco);
     text-align: center;
     padding: 2.5em 2em;
-
 }
 .banner-titulo {
     font-size: 18px;
@@ -20,6 +19,7 @@
     border-radius: 24px;    
     padding: 1em;
     width: 100%;
+    text-align: center;
 }
 .banner-pesquisa::placeholder {
     font-family: var(--fonte-principal);
@@ -51,6 +51,6 @@
         background-position: 9em;
      }
      .banner {
-        padding: 6em 0;
+        padding: 4em 0;
      }
 }

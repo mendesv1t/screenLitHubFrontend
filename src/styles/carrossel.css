@@ -23,7 +23,7 @@
     align-items: center;
 }
 
-.loading {
+.loading-carrossel {
     content: "";
     transform: translate(-50%, -50%);
     width: 18px;
@@ -31,12 +31,12 @@
     border: 5px solid white;
     border-top-color: transparent;
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin-carrossel 1s linear infinite;
     margin-top: 20px;
     margin-left: 25px;
 }
 
-@keyframes spin {
+@keyframes spin-carrossel {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }

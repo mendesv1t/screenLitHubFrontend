@@ -3,6 +3,9 @@ import logo from "@/assets/Logo.png";
 import {AuthContext} from './context/authContext';
 import React, {useContext} from 'react';
 import Link from "next/link";
+import usuario from '../assets/usuario.png'
+import logoutImg from '../assets/logoutImg.png'
+import login from '../assets/login.png'
 
 export default function NavBar() {
     const {isLoggedIn, logout} = useContext(AuthContext);
@@ -43,7 +46,7 @@ export default function NavBar() {
                         </ul>
                     </>
                     : <></>}
-                <Image src={logo} style={{width: '4vw', height: 'auto'}} alt="Logo do ScreenLitHub"
+                <Image src={logo} alt="Logo do ScreenLitHub"
                        className="container-imagem"/>
                 <Link href="/" style={{ textDecoration: 'none', color: 'var(--primaria)' }}><h1 className="container-titulo"><b className="container-titulo-negrito">ScreenLitHub</b></h1></Link>
             </div>
@@ -80,15 +83,15 @@ export default function NavBar() {
                 {isLoggedIn ?
                     <div style={{display: 'inline-flex'}}>
                         <Link href="/perfil" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large', marginRight: '1em'}}>
-                            <p>Meu perfil</p>
+                            <Image src={usuario} alt="Meu Perfil" style={{width: '50px', height: 'auto'}}></Image>
                         </Link>
                         <Link href="/" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large'}}>
-                            <p onClick={handleLogout}>Logout</p>
+                            <Image src={logoutImg} alt="Sair" onClick={handleLogout} style={{width: '40px', height: 'auto'}}></Image>
                         </Link>
                     </div>
                     :
                     <Link href="/login" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large'}}>
-                        <p>Login</p>
+                        <Image src={login} alt="Login"></Image>
                     </Link>
                 }
             </div>

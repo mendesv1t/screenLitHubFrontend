@@ -33,7 +33,6 @@
     font-size: 16px;
     text-align: center;
     color: var(--primaria);
-    background-image: url("../assets/Email.svg");
     background-repeat: no-repeat;
     background-position: 1em;
 }
