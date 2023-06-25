@@ -10,6 +10,7 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [token, setToken] = useState(null);
+    const [user, setUser] = useState(null);
     const router = useRouter();
 
     let tokenStorage;
@@ -21,6 +22,15 @@ export const AuthProvider = ({ children }) => {
         if (tokenStorage) {
             setToken(tokenStorage)
             setIsLoggedIn(true)
+            axios.get(apiurl + 'user', {
+                headers: {Authorization: `Bearer ${tokenStorage}`}
+            }).then(response => {
+                setUser(response.data);
+            }).catch(error => {
+                if (error.response.status === 401) {
+                    logout();
+                }
+            });
         }
     }, [])
 
@@ -54,7 +64,7 @@ export const AuthProvider = ({ children }) => {
     };
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout }}>
+        <AuthContext.Provider value={{ isLoggedIn, login, logout, token, user }}>
             {children}
         </AuthContext.Provider>
     );
