@@ -6,8 +6,10 @@ import nocover from '../assets/nocover.png';
 import NextImage from "next/image";
 import {AuthContext} from "@/components/context/authContext";
 import favoritado from '../assets/favoritado.png'
+import { useRouter } from 'next/router';
 
 export default function Home() {
+    const router = useRouter();
 
     function getRandomLetter() {
         const categorias = ['action', 'horror', 'comedy', 'romance', 'thriller', 'mystery', 'fantasy', 'classic'];
@@ -34,7 +36,7 @@ export default function Home() {
         return size > 1;
     }
 
-    const {token, logout, user, updateUser} = useContext(AuthContext);
+    const {token, logout, user, updateUser, isLoggedIn} = useContext(AuthContext);
 
     const [books, setBooks] = useState([]);
 
@@ -101,6 +103,12 @@ export default function Home() {
 
     async function addCollection(book) {
         let newBook;
+
+        if (!isLoggedIn) {
+            router.push('/login');
+
+            return;
+        }
 
         await axios.get(apiurl + 'books' + book.key)
             .then(async response => {
