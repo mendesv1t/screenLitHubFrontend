@@ -34,6 +34,18 @@ export const AuthProvider = ({ children }) => {
         }
     }, [])
 
+    const updateUser = async () => {
+        axios.get(apiurl + 'user', {
+            headers: {Authorization: `Bearer ${token}`}
+        }).then(response => {
+            setUser(response.data);
+        }).catch(error => {
+            if (error.response.status === 401) {
+                logout();
+            }
+        });
+    }
+
     // Função para fazer login
     const login = async (username, password) => {
         try {
@@ -60,11 +72,13 @@ export const AuthProvider = ({ children }) => {
 
         localStorage.removeItem('tokenStorage');
 
+        setUser(null)
+
         router.push('/');
     };
 
     return (
-        <AuthContext.Provider value={{ isLoggedIn, login, logout, token, user }}>
+        <AuthContext.Provider value={{ isLoggedIn, login, logout, token, user, updateUser }}>
             {children}
         </AuthContext.Provider>
     );

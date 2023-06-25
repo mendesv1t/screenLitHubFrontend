@@ -34,7 +34,7 @@ export default function Home() {
         return size > 1;
     }
 
-    const {token, logout, user} = useContext(AuthContext);
+    const {token, logout, user, updateUser} = useContext(AuthContext);
 
     const [books, setBooks] = useState([]);
 
@@ -134,8 +134,8 @@ export default function Home() {
 
                         axios.put(apiurl + 'collection/' + newBook.id, {}, {
                             headers: {Authorization: `Bearer ${token}`}
-                        }).then(r => {
-
+                        }).then(() => {
+                            updateUser();
                         }).catch(error => {
                             if (error.response.status === 401) {
                                 logout();
