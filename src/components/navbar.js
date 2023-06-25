@@ -29,19 +29,19 @@ export default function NavBar() {
                         <ul className="lista-menu">
                             <li className="lista-menu-titulo">Categorias</li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Romance</a>
+                                <Link href={{ pathname: '/categoria', query: { keyword: 'romance' } }} className="lista-menu-link">Romance</Link>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Aventura</a>
+                                <Link href={{ pathname: '/categoria', query: { keyword: 'aventura' } }} className="lista-menu-link">Aventura</Link>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Terror</a>
+                                <Link href={{ pathname: '/categoria', query: { keyword: 'terror' } }} className="lista-menu-link">Terror</Link>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Comédia</a>
+                                <Link href={{ pathname: '/categoria', query: { keyword: 'comedia' } }} className="lista-menu-link">Comédia</Link>
                             </li>
                             <li className="lista-menu-item">
-                                <a href="#" className="lista-menu-link">Fantasia</a>
+                                <Link href={{ pathname: '/categoria', query: { keyword: 'fantasia' } }} className="lista-menu-link">Fantasia</Link>
                             </li>
                         </ul>
                     </>
@@ -59,19 +59,19 @@ export default function NavBar() {
 
                     <ul className="lista-menu">
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Romance</a>
+                            <Link href={{ pathname: '/categoria', query: { keyword: 'romance' } }} className="lista-menu-link">Romance</Link>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Aventura</a>
+                            <Link href={{ pathname: '/categoria', query: { keyword: 'aventura' } }} className="lista-menu-link">Aventura</Link>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Terror</a>
+                            <Link href={{ pathname: '/categoria', query: { keyword: 'terror' } }} className="lista-menu-link">Terror</Link>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Comédia</a>
+                            <Link href={{ pathname: '/categoria', query: { keyword: 'comedia' } }} className="lista-menu-link">Comédia</Link>
                         </li>
                         <li className="lista-menu-item">
-                            <a href="#" className="lista-menu-link">Fantasia</a>
+                            <Link href={{ pathname: '/categoria', query: { keyword: 'fantasia' } }} className="lista-menu-link">Fantasia</Link>
                         </li>
                     </ul>
 
