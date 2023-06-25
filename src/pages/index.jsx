@@ -181,8 +181,25 @@ export default function Home() {
     }
 
     function removeCollection(book) {
-        console.log(book)
-        console.log(user)
+        loadingBooks.push(book.key)
+        let index = loadingBooks.length - 1;
+
+        setLoadingsBooks(cloneDeep(loadingBooks));
+
+        axios.delete(apiurl + 'collectionKey', {
+            params: {query: book.key},
+            headers: {Authorization: `Bearer ${token}`}
+        }).then(async () => {
+            await updateUser().then(() => {
+                loadingBooks.splice(index, 1);
+                setLoadingsBooks(cloneDeep(loadingBooks))
+            });
+
+        }).catch(error => {
+            if (error.response.status === 401) {
+                logout();
+            }
+        });
     }
 
     return (
@@ -218,7 +235,7 @@ export default function Home() {
                             </div>
                             <div className="card-botoes" style={{height: '20%'}}>
                                 <ul className="botoes">
-                                    { user !== null && user.keys.includes(book.key) ?
+                                    { user !== null && user.keys.includes(book.key) && !loadingBooks.includes(book.key) ?
                                         <li className="botoes-item" onClick={() => removeCollection(book)} key={index}>
                                             <NextImage src={favoritado} style={{width: '30px', height: 'auto'}}
                                                    alt="Adicionar a Estante"/></li>
