@@ -7,6 +7,7 @@ import NextImage from "next/image";
 import {AuthContext} from "@/components/context/authContext";
 import favoritado from '../assets/favoritado.png'
 import { useRouter } from 'next/router';
+import cloneDeep from 'lodash/cloneDeep';
 
 export default function Home() {
     const router = useRouter();
@@ -26,10 +27,10 @@ export default function Home() {
         })
     }
 
-    async function verifySize(base64) {
+    async function verifySize(url) {
         let size;
 
-        await imageProcess("data:image/png;base64," + base64).then(r => {
+        await imageProcess(url).then(r => {
             size = r
         })
 
@@ -41,6 +42,8 @@ export default function Home() {
     const [books, setBooks] = useState([]);
 
     const [busca, setBusca] = useState('');
+
+    const [loadingBooks, setLoadingsBooks] = useState([]);
 
     const handleBuscaChange = (event) => {
         setBusca(event.target.value);
@@ -72,6 +75,15 @@ export default function Home() {
 
     let apiurl = process.env.NEXT_PUBLIC_API_URL;
 
+    function loadImages(docs) {
+        return new Promise(async () => {
+            for (const doc of docs) {
+                doc.image = await verifySize(doc.cover_image);
+                setBooks(cloneDeep(docs));
+            }
+        })
+    }
+
     useEffect(() => {
         let q = getRandomLetter();
 
@@ -86,16 +98,15 @@ export default function Home() {
         }).then(async response => {
             let docs = response.data.docs;
 
-            for (let doc of docs) {
+            for (const doc of docs) {
                 doc.image = false;
-                await verifySize(doc.cover_image).then(r => {
-                    doc.image = r
-                })
             }
 
-            setBooks(docs)
+            setBooks(docs);
+
+            loadImages(docs);
         }).catch(error => {
-            if (error.response.status === 401) {
+            if (error.response && error.response.status === 401) {
                 logout();
             }
         });
@@ -109,6 +120,11 @@ export default function Home() {
 
             return;
         }
+
+        loadingBooks.push(book.key)
+        let index = loadingBooks.length - 1;
+
+        setLoadingsBooks(cloneDeep(loadingBooks));
 
         await axios.get(apiurl + 'books' + book.key)
             .then(async response => {
@@ -134,6 +150,8 @@ export default function Home() {
                             return {'name': a}
                         }),
                         'cover_i': book.cover_i,
+                        'cover_image': book.cover_image,
+                        'image': book.image,
                         'title': book.title
                     }, {
                         headers: {Authorization: `Bearer ${token}`}
@@ -142,8 +160,12 @@ export default function Home() {
 
                         axios.put(apiurl + 'collection/' + newBook.id, {}, {
                             headers: {Authorization: `Bearer ${token}`}
-                        }).then(() => {
-                            updateUser();
+                        }).then(async () => {
+                            await updateUser().then(() => {
+                                loadingBooks.splice(index, 1);
+                                setLoadingsBooks(cloneDeep(loadingBooks))
+                            });
+
                         }).catch(error => {
                             if (error.response.status === 401) {
                                 logout();
@@ -183,12 +205,12 @@ export default function Home() {
                     {books.map((book, index) => (
                         <div key={index} className="card">
                             <div className="card-descricao" style={{height: '80%'}}>
-                                {
-                                    book.image ? <img src={'data:image/png;base64,' + book.cover_image}
-                                                      style={{width: 'auto', height: '170px'}} alt="Capa do livro"/>
-                                        : <NextImage src={nocover} style={{width: 'auto', height: '170px'}}
-                                                     alt="Capa do livro"/>
-                                }
+                                    {book.image ? <img src={book.cover_image}
+                                                       style={{width: 'auto', height: '170px'}}
+                                                       alt="Capa do livro"/>
+                                            : <img src={nocover.src}
+                                                    style={{width: 'auto', height: '170px'}}
+                                                    alt="Capa do livro"/>}
                                 <div className="descricao">
                                     <h2 className="descricao-titulo-livro">{book.title}</h2>
                                     <h3 className="descricao-autora">{book.author_name}</h3>
@@ -196,13 +218,18 @@ export default function Home() {
                             </div>
                             <div className="card-botoes" style={{height: '20%'}}>
                                 <ul className="botoes">
-                                    { user !== null && user.keys.includes(book.key) ? <li className="botoes-item" onClick={() => removeCollection(book)} key={index}>
-                                        <NextImage src={favoritado} style={{width: '30px', height: 'auto'}}
-                                                   alt="Adicionar a Estante"/></li> : <li className="botoes-item" onClick={() => addCollection(book)} key={index}>
-                                        <NextImage src={favoritar} style={{width: '30px', height: 'auto'}}
-                                                   alt="Adicionar a Estante"/></li>}
-
-
+                                    { user !== null && user.keys.includes(book.key) ?
+                                        <li className="botoes-item" onClick={() => removeCollection(book)} key={index}>
+                                            <NextImage src={favoritado} style={{width: '30px', height: 'auto'}}
+                                                   alt="Adicionar a Estante"/></li>
+                                        :
+                                        loadingBooks.includes(book.key) ?
+                                                <li className="loading-favorite" key={index}>
+                                                    </li>
+                                                :
+                                                <li className="botoes-item" onClick={() => addCollection(book)} key={index}>
+                                                    <NextImage src={favoritar} style={{width: '30px', height: 'auto'}}
+                                                               alt="Adicionar a Estante"/></li>}
                                 </ul>
                                 <a href={'https://openlibrary.org' + book.key} target={"_blank"}
                                    className="botoes-ancora">Saiba mais</a>

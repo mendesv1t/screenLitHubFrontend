@@ -75,7 +75,7 @@ export default function NavBar() {
                         </li>
                     </ul>
 
-                    <li className="opcoes-item"><a className="opcoes-item-link" href="#">Minha Estante</a></li>
+                    <li className="opcoes-item"><Link className="opcoes-item-link" href="/estante">Minha Estante</Link></li>
                 </ul>
                 : <></>}
 

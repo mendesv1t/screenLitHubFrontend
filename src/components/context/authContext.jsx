@@ -17,7 +17,7 @@ export const AuthProvider = ({ children }) => {
 
     let apiurl = process.env.NEXT_PUBLIC_API_URL;
 
-    useEffect(() => {
+    useEffect(async () => {
         tokenStorage = localStorage.getItem('tokenStorage');
         if (tokenStorage) {
             setToken(tokenStorage)
@@ -59,6 +59,15 @@ export const AuthProvider = ({ children }) => {
                 localStorage.setItem('tokenStorage', tokenObject.access_token)
                 setToken(tokenObject.access_token);
                 setIsLoggedIn(true);
+                axios.get(apiurl + 'user', {
+                    headers: {Authorization: `Bearer ${tokenObject.access_token}`}
+                }).then(response => {
+                    setUser(response.data);
+                }).catch(error => {
+                    if (error.response.status === 401) {
+                        logout();
+                    }
+                });
                 await router.push('/');
             }
         } catch (error) {

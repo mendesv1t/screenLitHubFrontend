@@ -53,6 +53,28 @@
     width: 10%;
 }
 
+.loading-favorite {
+    content: "";
+    transform: translate(-50%, -50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--secundario);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin-carrossel 1s linear infinite;
+    margin-left: 20px;
+    margin-top: 5px;
+}
+
+@keyframes spin-carrossel {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
 .carrossel-container {
     width: 100%;
     height: 100%;
