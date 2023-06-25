@@ -2,9 +2,10 @@ import React, {useContext, useState} from 'react';
 import './criarConta.css'
 import axios from "axios";
 import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
-import {router} from "next/client";
+import {useRouter} from "next/router";
 
 const AddAccount = () => {
+    const router = useRouter();
 
     let apiurl = process.env.NEXT_PUBLIC_API_URL;
     const [username, setUsername] = useState('');
@@ -44,7 +45,9 @@ const AddAccount = () => {
                 name: name,
                 login: username,
                 password: password
-            } ).then(() => router.push('/login'));
+            } ).then(() => {
+                router.push('/login')
+            });
 
             button.classList.remove('loading');
             button.innerText = 'Criar Conta'

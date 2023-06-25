@@ -31,6 +31,7 @@ const LoginPage = () => {
     };
 
     const router = useRouter();
+
     function criarconta() {
         router.push('/criarconta');
     }
