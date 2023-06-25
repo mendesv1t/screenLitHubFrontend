@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react';
 import './login.css'
 import {AuthContext} from "@/components/context/authContext";
+import {useRouter} from "next/router";
 
 const LoginPage = () => {
     const { login } = useContext(AuthContext);
@@ -29,6 +30,11 @@ const LoginPage = () => {
         button.innerText = 'Entrar'
     };
 
+    const router = useRouter();
+    function criarconta() {
+        router.push('/criarconta');
+    }
+
     return (
         <div className="login-container">
             <div className="login-content">
@@ -54,7 +60,10 @@ const LoginPage = () => {
                             className="form-input"
                         />
                     </div>
+                    <div style={{display: 'flex', gap: '2em'}}>
                     <button type="submit" className="login-button" id={'login-button'}>Entrar</button>
+                    <button onClick={() => criarconta() } className="criar-button" id={'login-button'}>Criar conta</button>
+                    </div>
                 </form>
             </div>
         </div>

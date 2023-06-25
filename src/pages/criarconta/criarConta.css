@@ -57,23 +57,6 @@
     color: #FFFFFF;
 }
 
-.criar-button {
-    padding: 8px 16px;
-    background-color: var(--primaria);
-    color: var(--secundario);
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-}
-
-.criar-button:hover {
-    background-color: #e73e5c;
-    color: #FFFFFF;
-}
-
 #login-button.loading:before {
     content: "";
     transform: translate(-50%, -50%);

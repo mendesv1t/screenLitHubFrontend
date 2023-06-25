@@ -168,7 +168,7 @@ export default function Home() {
             <section className="banner">
                 <div className="banner-card">
                     <h2 className="banner-titulo">Já sabe por onde começar?</h2>
-                    <p className="banner-texto">Encontre em nossa estante a sua próxima aventura literária!!</p>
+                    <p className="banner-texto">Encontre em nossa estante a sua próxima aventura literária!</p>
                     <input type="search" className="banner-pesquisa" placeholder="Qual será a sua próxima leitura?"
                            value={busca}
                            onChange={handleBuscaChange} onKeyDown={keyDownHandler} onKeyUp={keyUpHandler}/>
