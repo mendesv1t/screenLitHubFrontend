@@ -82,9 +82,6 @@ export default function NavBar() {
             <div className="container">
                 {isLoggedIn ?
                     <div style={{display: 'inline-flex'}}>
-                        <Link href="/perfil" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large', marginRight: '1em'}}>
-                            <Image src={usuario} alt="Meu Perfil" style={{width: '50px', height: 'auto'}}></Image>
-                        </Link>
                         <Link href="/" className="container-link" style={{color: 'var(--primaria)', fontsize: 'large'}}>
                             <Image src={logoutImg} alt="Sair" onClick={handleLogout} style={{width: '40px', height: 'auto'}}></Image>
                         </Link>
