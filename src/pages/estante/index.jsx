@@ -33,6 +33,8 @@ const EstantePage = () => {
 
     const [books, setBooks] = useState([]);
 
+    const [semLivros, setSemLivros] = useState(false);
+
     let apiurl = process.env.NEXT_PUBLIC_API_URL;
 
     function loadImages(docs) {
@@ -47,7 +49,9 @@ const EstantePage = () => {
     useEffect(() => {
         if (user === null) return
 
-        setBooks(user.books)
+        if (user.books.length === 0) setSemLivros(true);
+
+        setBooks(user.books);
     }, [user])
 
     const [loadingBooks, setLoadingsBooks] = useState([]);
@@ -77,8 +81,11 @@ const EstantePage = () => {
         <div style={{width: '100%'}}>
             <section className="carrossel">
                 <h2 className="carrossel-titulo">{'Mnha Estante'}</h2>
-                {books.length === 0 ?
+                {books.length === 0 && !semLivros ?
                     <div className="carrossel-carregando"><h1>Carregando</h1><p className="loading-carrossel"></p>
+                    </div> : <></>}
+                {semLivros ?
+                    <div className="carrossel-carregando"><h1>Não há livros na sua estante!</h1>
                     </div> : <></>}
                 <div className="carrossel-container">
                     {books.map((book, index) => (
